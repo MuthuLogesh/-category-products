@@ -6,8 +6,6 @@ export const fetchProductsByCategory = createAsyncThunk(
     async (categoryId, { rejectWithValue }) => {
         try {
             const response = await axios.get(`https://fatherstock-cache.b-cdn.net/category/${categoryId}.json`);
-            console.log("product data", response.data)
-
             return response.data.data.products;
         } catch (error) {
             return rejectWithValue(error.message);
